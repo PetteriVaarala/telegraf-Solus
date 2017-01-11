@@ -1,0 +1,41 @@
+<PISI>
+    <Source>
+        <Name>telegraf</Name>
+        <Packager>
+            <Name>Petteri Vaarala</Name>
+            <Email>petteri.vaarala@gmail.com</Email>
+        </Packager>
+        <License>MIT</License>
+        <PartOf>system.utils</PartOf>
+        <Summary xml:lang="en">Telegraf is an agent written in Go for collecting, processing, aggregating, and writing metrics</Summary>
+        <Description xml:lang="en">Telegraf is a plugin-driven server agent for collecting &amp; reporting metrics, and is the first piece of the TICK stack. Telegraf has plugins to source a variety of metrics directly from the system it’s running on, pull metrics from third party APIs, or even listen for metrics via a statsd and Kafka consumer services. It also has output plugins to send metrics to a variety of other datastores, services, and message queues, including InfluxDB, Graphite, OpenTSDB, Datadog, Librato, Kafka, MQTT, NSQ, and many others.
+</Description>
+        <Archive type="binary" sha1sum="79eb0752a961b8e0d15c77d298c97498fbc89c5a">https://solus-project.com/sources/README.Solus</Archive>
+    </Source>
+    <Package>
+        <Name>telegraf</Name>
+        <Summary xml:lang="en">Telegraf is an agent written in Go for collecting, processing, aggregating, and writing metrics</Summary>
+        <Description xml:lang="en">Telegraf is a plugin-driven server agent for collecting &amp; reporting metrics, and is the first piece of the TICK stack. Telegraf has plugins to source a variety of metrics directly from the system it’s running on, pull metrics from third party APIs, or even listen for metrics via a statsd and Kafka consumer services. It also has output plugins to send metrics to a variety of other datastores, services, and message queues, including InfluxDB, Graphite, OpenTSDB, Datadog, Librato, Kafka, MQTT, NSQ, and many others.
+</Description>
+        <PartOf>system.utils</PartOf>
+        <Files>
+            <Path fileType="config">/etc/logrotate.d/telegraf</Path>
+            <Path fileType="config">/etc/telegraf/telegraf.conf</Path>
+            <Path fileType="config">/etc/telegraf/telegraf.d</Path>
+            <Path fileType="executable">/usr/bin</Path>
+            <Path fileType="library">/usr/lib/systemd/system/telegraf.service</Path>
+            <Path fileType="library">/usr/lib/telegraf/scripts/init.sh</Path>
+            <Path fileType="library">/usr/lib64/sysusers.d/telegraf.conf</Path>
+            <Path fileType="data">/var/log/telegraf</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2017-01-01</Date>
+            <Version>1.1.2</Version>
+            <Comment>Packaging update</Comment>
+            <Name>Petteri Vaarala</Name>
+            <Email>petteri.vaarala@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

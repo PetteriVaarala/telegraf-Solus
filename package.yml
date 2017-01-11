@@ -1,0 +1,27 @@
+name       : telegraf
+version    : 1.1.2
+release    : 1
+source     :
+    - https://dl.influxdata.com/telegraf/releases/telegraf-1.1.2_linux_amd64.tar.gz : 5494acc5f72548f3c8f9e053a278e11b5fc6ab1f6bee2d5fea305fbe63c46ae6
+license    : MIT
+component  : system.utils
+summary    : Telegraf is an agent written in Go for collecting, processing, aggregating, and writing metrics
+description: |
+    Telegraf is a plugin-driven server agent for collecting & reporting metrics, and is the first piece of the TICK stack. Telegraf has plugins to source a variety of metrics directly from the system it’s running on, pull metrics from third party APIs, or even listen for metrics via a statsd and Kafka consumer services. It also has output plugins to send metrics to a variety of other datastores, services, and message queues, including InfluxDB, Graphite, OpenTSDB, Datadog, Librato, Kafka, MQTT, NSQ, and many others.
+install    : |
+    # user
+    install -D -m 00644 $pkgfiles/telegraf.sysusers $installdir/%libdir%/sysusers.d/telegraf.conf
+
+    # config files
+    install -D -m 00644 etc/logrotate.d/telegraf $installdir/etc/logrotate.d/telegraf
+    install -D -m 00644 etc/telegraf/telegraf.conf $installdir/etc/telegraf/telegraf.conf
+    install -d -m 00755 $installdir/etc/telegraf/telegraf.d/
+
+    # bin & lib
+    install -D -m 00775 usr/bin/telegraf $installdir/usr/bin/telegraf
+    install -D -m 00644 usr/lib/telegraf/scripts/init.sh $installdir/usr/lib/telegraf/scripts/init.sh
+    install -D -m 00644 usr/lib/telegraf/scripts/telegraf.service $installdir/usr/lib/systemd/system/telegraf.service
+
+    # log directory
+    install -d -m 00755 $installdir/var/log/telegraf/
+
